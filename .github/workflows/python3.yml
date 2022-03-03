@@ -20,7 +20,7 @@ jobs:
       run: |
         sudo docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-beijing.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
         sudo pwd && sudo ls
-        sudo docker build --file Dockerfile -t ${{ matrix.image-name }}:${{ matrix.image-version }} .
-        sudo docker tag ${{ matrix.image-name }}:${{ matrix.image-version }} registry.cn-beijing.aliyuncs.com/kts/python:${{ matrix.image-version }}
-        sudo docker push registry.cn-beijing.aliyuncs.com/kts/python:${{ matrix.image-version }}
+        #sudo docker build --file Dockerfile -t ${{ matrix.image-name }}:${{ matrix.image-version }} .
+        #sudo docker tag ${{ matrix.image-name }}:${{ matrix.image-version }} registry.cn-beijing.aliyuncs.com/kts/python:${{ matrix.image-version }}
+        #sudo docker push registry.cn-beijing.aliyuncs.com/kts/python:${{ matrix.image-version }}
 
