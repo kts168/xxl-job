@@ -15,11 +15,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: docker build and push aliyun
       env:
-        aliyun_username: ${{ secrets.Aliyun_Username }}
-        aliyun_password: ${{ secrets.Aliyun_Password }}
+        aliyun_username: ${{ secrets.DOCKER_USERNAME }}
+        aliyun_password: ${{ secrets.DOCKER_PASSWORD }}
       run: |
-        sudo docker login --username=${aliyun_username} registry.cn-beijing.aliyuncs.com --password=${{ secrets.aliyun_password }}
+        sudo docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-beijing.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
         sudo docker build -t ${{ matrix.image-name }}:${{ matrix.image-version }} .
-        sudo docker tag ${{ matrix.image-name }}:${{ matrix.image-version }} registry.cn-beijing.aliyuncs.com/命名空间/镜像仓库:${{ matrix.image-version }}
-        sudo docker push registry.cn-beijing.aliyuncs.com/命名空间/镜像仓库:${{ matrix.image-version }}
+        sudo docker tag ${{ matrix.image-name }}:${{ matrix.image-version }} registry.cn-beijing.aliyuncs.com/kts/python:${{ matrix.image-version }}
+        sudo docker push registry.cn-beijing.aliyuncs.com/kts/python:${{ matrix.image-version }}
 
